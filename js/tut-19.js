@@ -2,18 +2,48 @@
 // You have to create a div and inject it into the page with heading.
 // Whenever someone clicks on the div, it should become editable item. Whenever user clicks away (blur). Save the note into the local storage.
 
-let div=document.createElement('div');
-console.log(div);
-let element =document.querySelector('#heading');
-element.appendChild(div);
-element.id='edit';
-div.innerText="Click to enter the text";
-div.addEventListener('click',func1);
-function func1(e){
-   div.contentEditable="true";
+// Create a new element
+let divElem = document.createElement('div');
+
+// Add text to that created element
+let val = localStorage.getItem('text');
+let text;
+if (val==null){
+ text = document.createTextNode('This is my element. click to edit it');
 }
-div.addEventListener('blur',func2);
-function func2(e){
-    localStorage.setItem('div',div.innerText);
+else{
+    text = document.createTextNode(val);
 }
-// console.log(div);
+divElem.appendChild(text);
+
+// Give element id, style and class
+divElem.setAttribute('id', 'elem');
+divElem.setAttribute('class', 'elem');
+divElem.setAttribute('style', 'border:2px solid black; width: 154px; margin: 34px; padding:23px;');
+
+// Grab the main container
+let container = document.querySelector('.container');
+let first = document.getElementById('myfirst');
+
+
+// Insert the element before element with id first
+container.insertBefore(divElem, first);
+
+console.log(divElem, container, first)
+
+// add event listener to the divElem
+divElem.addEventListener('click', function () {
+    let noTextAreas = document.getElementsByClassName('textarea').length;
+    if(noTextAreas ==0){
+    let html = elem.innerHTML;
+    divElem.innerHTML = ` <textarea class="textarea form-control" id="textarea" rows="3"> ${html}</textarea>`;
+    }
+    //listen for the blur event on textarea
+    let textarea = document.getElementById('textarea');
+    textarea.addEventListener('blur', function() {
+        elem.innerHTML = textarea.value;
+        localStorage.setItem('text', textarea.value);
+    })
+});
+
+ 
