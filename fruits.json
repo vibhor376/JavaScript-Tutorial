@@ -1,0 +1,10 @@
+{
+    "fruits":[
+      {"name":"Apple", "price":"65/kg"},
+      {"name":"Banana", "price":"30/kg"},      
+      {"name":"Mango", "price":"90/kg"},
+      {"name":"Watermelon", "price":"120/kg"},
+      {"name":"Grapes", "price":"100/kg"},
+      {"name":"Peaches", "price":"70/kg"}
+    ]
+}

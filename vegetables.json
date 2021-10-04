@@ -1,0 +1,10 @@
+{
+    "vegetables":[
+      {"name":"Bhindi", "price":"25/kg"},
+      {"name":"Ghiya", "price":"15/kg"},      
+      {"name":"Tinda", "price":"35/kg"},
+      {"name":"Shalgam", "price":"40/kg"},
+      {"name":"ShimlaMirch", "price":"60/kg"},
+      {"name":"Matar", "price":"20/kg"}
+    ]
+}
